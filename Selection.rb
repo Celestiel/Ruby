@@ -12,10 +12,6 @@ class Viewport
     @selection_zone_h = h
     @column = self.rect.width / w
     @line = self.rect.height / h
-    p w
-    p h
-    p @column
-    p @line
   end
   #--------------------------------------------------------------------------
   # * Get Coord
