@@ -15,7 +15,7 @@ class Object
     return true
   end
   #--------------------------------------------------------------------------
-  # Recursive Fonction : Duplicate Object and SubObject 
+  # Recursive Fonction : Duplicate Object and SubObject
   #--------------------------------------------------------------------------
   def inst_dup
     return self if !self.is_duplicable? 
