@@ -26,7 +26,7 @@ class Object
     return duplicated_object
   end
   #--------------------------------------------------------------------------
-  # Be a mimic
+  # mimic instance of 
   #--------------------------------------------------------------------------
   def mimic(object)
     object.instance_variables.all? do |instance|
@@ -39,7 +39,7 @@ class Object
   def inst_eql?(object)
     if self.is_a?(object.class)
       self.instance_variables.all? do |instance|
-        self.instance_variable_get(instance) == object.instance_variable_get(instance)
+        self.instance_variable_get(instance).inst_eql?(object.instance_variable_get(instance))
       end
     end
   end
@@ -68,4 +68,13 @@ class Hash
     self.each{|key,instance| duplicated_object[key] = instance.inst_dup}
     return duplicated_object
   end
+end
+#==============================================================================
+# ** Module Eql
+#------------------------------------------------------------------------------
+# 
+#==============================================================================
+module Eql
+  def ==(object); self.inst_eql?(object);end
+  def eql?(object); self.inst_eql?(object);end
 end
