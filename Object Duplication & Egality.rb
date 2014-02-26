@@ -8,11 +8,9 @@ class Object
   # object.is_duplicable?
   #--------------------------------------------------------------------------
   def is_duplicable?
-    return false if self.is_a?(Numeric)
-    return false if self.is_a?(Symbol)
-    return false if self.is_a?(TrueClass)
-    return false if self.is_a?(FalseClass)
-    return true
+    !self.class.ancestors.any? do |k|
+      [Numeric, Symbol, TrueClass, FalseClass].include?(k)
+    end
   end
   #--------------------------------------------------------------------------
   # Recursive Fonction : Duplicate Object and SubObject
@@ -75,6 +73,6 @@ end
 # 
 #==============================================================================
 module Eql
-  def ==(object); self.inst_eql?(object);end
   def eql?(object); self.inst_eql?(object);end
+  alias :== :eql?
 end
