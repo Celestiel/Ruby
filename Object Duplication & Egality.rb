@@ -48,9 +48,9 @@ class Object # /!\ This Script is a Nuke
   end
 end
 #==============================================================================
-# ** Array
+# ** String
 #------------------------------------------------------------------------------
-# - Array is not coded in RUBY and don't use instance_variable
+# - String is not coded in RUBY and don't use instance_variable
 #==============================================================================
 class String
   def inst_dup # Special case of inst_dup
