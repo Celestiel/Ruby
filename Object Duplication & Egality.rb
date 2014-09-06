@@ -8,7 +8,7 @@
 class Object # /!\ This Script is a Nuke
   #--------------------------------------------------------------------------
   # Some object respond to dup and clone but raise an error when the fonction
-  # is being call
+  # is call
   #--------------------------------------------------------------------------
   def is_duplicable?
     !self.class.ancestors.any? do |k|
@@ -49,8 +49,6 @@ class Object # /!\ This Script is a Nuke
 end
 #==============================================================================
 # ** String
-#------------------------------------------------------------------------------
-# - String is not coded in RUBY and don't use instance_variable
 #==============================================================================
 class String
   def inst_dup # Special case of inst_dup
@@ -59,8 +57,6 @@ class String
 end
 #==============================================================================
 # ** Array
-#------------------------------------------------------------------------------
-# - Array is not coded in RUBY and don't use instance_variable
 #==============================================================================
 class Array
   def inst_dup # Special case of inst_dup
@@ -71,8 +67,6 @@ class Array
 end
 #==============================================================================
 # ** Hash
-#------------------------------------------------------------------------------
-# - Hash is not coded in RUBY and don't use instance_variable
 #==============================================================================
 class Hash
   def inst_dup
@@ -83,9 +77,6 @@ class Hash
 end
 #==============================================================================
 # ** Proc
-#------------------------------------------------------------------------------
-# - Proc is not coded in RUBY and don't use instance_variable
-# dup/clone work on Proc but it's quite useless...
 #==============================================================================
 class Proc
   def inst_dup
